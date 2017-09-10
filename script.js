@@ -1,7 +1,7 @@
 
 var f_temperature;
 var c_temperature;
-
+//gets location from browser
 function getLocation() {
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(getWeather);
@@ -10,7 +10,7 @@ function getLocation() {
     }
 }
 
-
+//makes api call to darksky based on location
 function getWeather(position) {
           data = $.ajax({
             type: "GET",
@@ -25,7 +25,7 @@ function getWeather(position) {
             }
           });
 
-
+//sets icon based on conditions from JSON
 function setIcon(icon) {
   switch(icon) {
     case "clear-day":
@@ -65,9 +65,11 @@ function setIcon(icon) {
 }
 };
 
+
+//function to switch temp between C & f. has to wait for page to load.
 $(document).ready(function(){
   $('#tempswitch').on('click', function() {
-
+window.navigator.vibrate(200);
     if ($('#degree').hasClass('wi-fahrenheit')) {
       $('#temperature').html(c_temperature.toFixed(2));
     } else {
