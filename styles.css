@@ -3,16 +3,32 @@ html{
 }
 body{
    height:200%;
-   background-image: url("http://res.cloudinary.com/dnyy6kcjj/image/upload/v1500258759/FallColorsForestRays_dibnxo.jpg");
+   background-image: url("background.jpg");
    background-size: cover;
   background-color: #FFF;
   background-repeat: no-repeat;
   text-align: center;
-  margin-top: 50px;
   text-shadow: 2px 2px 5px black;
+  color: white;
+  font-family: sans-serif;
 }
+.container{
+  margin-top: 30px;
+  margin-bottom: 50px;
+  width:200px;
+  margin: auto;
+}
+
 #icon{
  font-size: 6em;
+ float:left;
+}
+.right{
+  float: right;
+  font-size: 30px;
+}
+#weather-condition{
+  float: right;
 }
 
 .switchtemp{
@@ -20,5 +36,11 @@ body{
   outline-color:#000;
   border-radius: 8px;
   padding: 10px;
+  color: white;
+  text-shadow: 2px 2px 5px black;
+  font-size:20px;
+  margin: auto;
 }
-
+footer{
+  margin-top:200px;
+}
