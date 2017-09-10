@@ -12,26 +12,26 @@ function getLocation() {
 
 
 function getWeather(position) {
-          data = $.ajax({ 
+          data = $.ajax({
             type: "GET",
             url: "https://api.darksky.net/forecast/" + "8976e9c57b0474e810150ad09fd6d933" + "/" + position.coords.latitude + "," + position.coords.longitude,
             dataType: 'jsonp',
-            success: function(data){        
+            success: function(data){
               $('#weather-condition').append(data.currently.summary);
              $('#temperature').append(data.currently.apparentTemperature);
               setIcon(data.currently.icon);
               f_temperature = data.currently.apparentTemperature
-              c_temperature = (f_temperature-32)*5/9           
-            } 
-          });  
-  
+              c_temperature = (f_temperature-32)*5/9
+            }
+          });
+
 
 function setIcon(icon) {
   switch(icon) {
     case "clear-day":
         $('i').addClass("wi-day-sunny");
         break;
-    case "clear-night": 
+    case "clear-night":
         $('i').addClass("wi-night-clear");
         break;
     case "rain":
@@ -65,15 +65,14 @@ function setIcon(icon) {
 }
 };
 
-
+$(document).ready(function(){
   $('#tempswitch').on('click', function() {
-  
+
     if ($('#degree').hasClass('wi-fahrenheit')) {
-      $('#temperature').html(c_temperature.toFixed(2)); 
+      $('#temperature').html(c_temperature.toFixed(2));
     } else {
-      $('#temperature').html(f_temperature.toFixed(2)); 
+      $('#temperature').html(f_temperature.toFixed(2));
     }
     $('#degree').toggleClass('wi-fahrenheit wi-celsius');
-  })
-  
-  
+  });
+});
